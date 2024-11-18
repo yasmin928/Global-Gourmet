@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Add New Shipper</h2>
+        <form method="POST">
+            <label for="company_name">Company Name</label>
+            <input type="text" name="CompanyName" required><br>
+
+            <label for="phone">Phone</label>
+            <input type="text" name="Phone" required><br>
+
+            <input type="submit" value="Add Shipper">
+        </form>
+    </div>
+{% endblock %}

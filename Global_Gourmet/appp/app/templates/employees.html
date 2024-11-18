@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center">Employees</h2>
+
+    <!-- Table for Customers Data -->
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">LastName</th>
+                    <th class="text-center">FirstName</th>
+                    <th class="text-center">Title</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                <tr>
+                    <td class="text-center">{{ employee.EmployeeID }}</td>
+                    <td class="text-center">{{ employee.LastName }}</td>
+                    <td class="text-center">{{ employee.FirstName }}</td>
+                    <td class="text-center">{{ employee.Title }}</td>
+                  
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="text-center">No customers found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

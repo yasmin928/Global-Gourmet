@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Add Order</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <div class="form-group">
+                <label for="CustomerID">Customer ID:</label>
+                <input type="text" name="CustomerID" required>
+            </div>
+            <div class="form-group">
+                <label for="EmployeeID">Employee ID:</label>
+                <input type="number" name="EmployeeID" required>
+            </div>
+            <div class="form-group">
+                <label for="OrderDate">Order Date:</label>
+                <input type="date" name="OrderDate" required>
+            </div>
+            <div class="form-group">
+                <label for="RequiredDate">Required Date:</label>
+                <input type="date" name="RequiredDate" required>
+            </div>
+            <div class="form-group">
+                <label for="ShippedDate">Shipped Date:</label>
+                <input type="date" name="ShippedDate">
+            </div>
+            <!-- <div class="form-group">
+                <label for="ShipVia">Ship Via:</label>
+                <input type="number" name="ShipVia" required>
+            </div> -->
+            <div class="form-group">
+                <label for="Freight">Freight:</label>
+                <input type="number" step="0.01" name="Freight" value="0.00" required>
+            </div>
+            <div class="form-group">
+                <label for="ShipName">Ship Name:</label>
+                <input type="text" name="ShipName" required>
+            </div>
+            <div class="form-group">
+                <label for="ShipAddress">Ship Address:</label>
+                <input type="text" name="ShipAddress" required>
+            </div>
+            <div class="form-group">
+                <label for="ShipCity">Ship City:</label>
+                <input type="text" name="ShipCity" required>
+            </div>
+            <div class="form-group">
+                <label for="ShipRegion">Ship Region:</label>
+                <input type="text" name="ShipRegion">
+            </div>
+            <div class="form-group">
+                <label for="ShipPostalCode">Ship Postal Code:</label>
+                <input type="text" name="ShipPostalCode" required>
+            </div>
+            <div class="form-group">
+                <label for="ShipCountry">Ship Country:</label>
+                <input type="text" name="ShipCountry" required>
+            </div>
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+</body>
+</html>

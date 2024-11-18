@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center">Suppliers</h2>
+
+    <!-- Table for Customers Data -->
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th>SupplierID</th>
+                    <th>CompanyName</th>
+                    <th>ContactName</th>
+                    <th>ContactTitle</th>
+                    <th>Country</th>
+                    <th>Phone</th>
+                 
+                </tr>
+            </thead>
+            <tbody>
+                {% for supplier in suppliers %}
+                <tr>
+                    <td>{{ supplier.SupplierID }}</td>
+                    <td>{{ supplier.CompanyName }}</td>
+                    <td>{{ supplier.ContactName }}</td>
+                    <td>{{ supplier.ContactTitle }}</td>
+                    <td>{{ supplier.Country }}</td>
+                    <td>{{ supplier.Phone }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="text-center">No customers found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

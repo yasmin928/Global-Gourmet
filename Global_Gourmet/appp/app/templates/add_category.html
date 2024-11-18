@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Add New Category</h2>
+        <form method="POST">
+            <label for="category_name">Category Name</label>
+            <input type="text" name="CategoryName" required><br>
+
+            <label for="description">Description</label>
+            <textarea name="Description" rows="4" required></textarea><br>
+
+            <input type="submit" value="Add Category">
+        </form>
+    </div>
+{% endblock %}

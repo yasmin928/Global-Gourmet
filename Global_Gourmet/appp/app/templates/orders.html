@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center">Orders</h2>
+    <!-- Search Input -->
+    <div class="mb-3">
+        <input type="text" id="searchInput" onkeyup="searchById()" placeholder="Search by Order ID..." class="form-control">
+    </div>
+
+    <!-- Table for Orders Data -->
+    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+        <table class="table table-bordered" id="ordersTable">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.OrderID }}</td>
+                    <td>{{ order.customer.ContactName }}</td>
+                    <td>{{ order.OrderDate }}</td>
+                    <td><a href="{{ url_for('main.track_order', order_id=order.OrderID) }}">Track</a></td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" class="text-center">No orders found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- JavaScript for Search Functionality -->
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+{% endblock %}
